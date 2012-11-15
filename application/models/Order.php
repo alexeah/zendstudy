@@ -1,8 +1,12 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: a.goncharov
- * Date: 15.11.12
- * Time: 6:03
- * To change this template use File | Settings | File Templates.
- */
+
+class Application_Model_Order extends Zend_Db_Table_Abstract
+{
+    protected $_name = 'order';
+    protected $_primary = 'id';
+
+    public function getAll()
+    {
+        return $this->fetchAll($this->select()->from($this->_name));
+    }
+}

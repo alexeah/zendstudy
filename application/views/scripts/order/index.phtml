@@ -1,8 +1,23 @@
-<?php
-/**
- * Created by JetBrains PhpStorm.
- * User: a.goncharov
- * Date: 15.11.12
- * Time: 5:32
- * To change this template use File | Settings | File Templates.
- */
+<table border="1" width="500" align="center">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if(count($this->orders) > 0): ?>
+            <?php foreach($this->orders as $pos => $order): ?>
+                <tr>
+                    <td><a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'order', 'action' => 'update'), null, true) . '?id='.$order->id; ?>"><?php echo $order->title; ?></a></td>
+                    <td><?php echo nl2br($order->text); ?></td>
+                    <td><a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'order', 'action' => 'delete'), null, true) . '?id='.$order->id; ?>">Remove</a></td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <tr><td colspan="3" align="center">No result.</td></tr>
+        <?php endif; ?>
+        <tr><td colspan="3" align="center"><a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'order', 'action' => 'create'), null, true); ?>">Add new</a></td></tr>
+    </tbody>
+</table>
