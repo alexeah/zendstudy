@@ -1,0 +1,18 @@
+<table width='100%'>
+    <td>
+    <?php if(count($this->customers)): ?>
+        <?php echo count($this->customers) ?> customers
+    <?php else : ?>
+        No customers yet
+    <?php endif; ?>
+    </td>
+    <td align='right'>
+        <a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'customers', 'action' => 'add'), null, true); ?>">Add a new one</a></td></tr>
+    </td>
+</table>
+<?php foreach($this->customers as $customer) : ?>
+    <b><?php echo $customer->first_name; ?> <?php echo $customer->second_name; ?></b>
+    <a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'customers', 'action' => 'edit'), null, true) . '?id=' . $customer->id; ?>">edit</a>
+    <a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'customers', 'action' => 'remove'), null, true) . '?id=' . $customer->id; ?>">remove</a>
+<?php endforeach; ?>
+
