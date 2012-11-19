@@ -42,7 +42,7 @@ class CustomersController extends Zend_Controller_Action
         }
 
         $this->_customersModel->delete("id=$id");
-        $this->forward('index');
+        $this->redirect('customers/index');
     }
 
     public function editAction()

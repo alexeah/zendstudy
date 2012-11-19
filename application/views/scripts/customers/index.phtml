@@ -12,7 +12,6 @@
 </table>
 <?php foreach($this->customers as $customer) : ?>
     <b><?php echo $customer->first_name; ?> <?php echo $customer->second_name; ?></b>
-    <a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'customers', 'action' => 'edit'), null, true) . '?id=' . $customer->id; ?>">edit</a>
-    <a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'customers', 'action' => 'remove'), null, true) . '?id=' . $customer->id; ?>">remove</a>
+    <a href='/customers/<?php echo $customer->id; ?>/edit'>edit</a>
+    <a href='/customers/<?php echo $customer->id; ?>/remove'>remove</a>
 <?php endforeach; ?>
-
