@@ -10,8 +10,18 @@
         <a href="<?php echo $this->serverUrl() . $this->url(array('controller' => 'customers', 'action' => 'add'), null, true); ?>">Add a new one</a></td></tr>
     </td>
 </table>
+<div class='customers-container'>
 <?php foreach($this->customers as $customer) : ?>
-    <b><?php echo $customer->first_name; ?> <?php echo $customer->second_name; ?></b>
-    <a href='/customers/<?php echo $customer->id; ?>/edit'>edit</a>
-    <a href='/customers/<?php echo $customer->id; ?>/remove'>remove</a>
+<table>
+    <td>
+        <div class='customer customer-<?php echo $customer->id; ?>'>
+            <?php echo $customer->first_name; ?> <?php echo $customer->second_name; ?>
+        </div>
+        <div class='tools'>
+            <a href='/customers/<?php echo $customer->id; ?>/edit'>edit</a>
+            <a href='/customers/<?php echo $customer->id; ?>/remove'>remove</a>
+        </div>
+    </td>
+</table>
 <?php endforeach; ?>
+</div>
