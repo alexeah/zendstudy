@@ -21,7 +21,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                     'id' => 1,
                 ]
         );
-        $router->addRoute('customersEdit', $routeCustomersEdit);
+        $router->addRoute('default', $routeCustomersEdit);
 
         $routeCustomersRemove = new Zend_Controller_Router_Route(
                 '/customers/:id/remove/',
