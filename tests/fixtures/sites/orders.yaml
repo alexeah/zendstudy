@@ -1,0 +1,71 @@
+zendstudy.orders:
+  -
+    coupon_id: 1
+    website_id: 1
+    coupon_code: testCode1
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date:
+    description: desc
+    coupon_usage: 0
+    coupon_usage_limit:
+  -
+    coupon_id: 2
+    website_id: 1
+    coupon_code: testCode2
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date:
+    description: desc
+    coupon_usage: 0
+    coupon_usage_limit:
+  -
+    coupon_id: 3
+    website_id: 1
+    coupon_code: testCode3
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date: '2013-01-01'
+    description: desc
+    coupon_usage: 0
+    coupon_usage_limit:
+  -
+    coupon_id: 4
+    website_id: 1
+    coupon_code: testCode4
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date: '2013-01-01'
+    description: desc
+    coupon_usage: 0
+    coupon_usage_limit:
+  -
+    coupon_id: 5
+    website_id: 1
+    coupon_code: testCode5
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date: '2013-01-01'
+    description: desc
+    coupon_usage: 0
+    coupon_usage_limit:
+  -
+    coupon_id: 6
+    website_id: 1
+    coupon_code: testCode6
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date: '2013-01-01'
+    description: desc
+    coupon_usage: 0
+    coupon_usage_limit:
+  -
+    coupon_id: 7
+    website_id: 3
+    coupon_code: testCode71
+    discount_type: percentage
+    start_date: '2011-10-26'
+    expiration_date: '2011-11-01'
+    description: desc
+    coupon_usage: 10
+    coupon_usage_limit: 5

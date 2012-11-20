@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../bootstrap.php';
+
 class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
 {
 

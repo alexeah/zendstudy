@@ -1,0 +1,71 @@
+<?php
+/**
+ * Ristretto
+ * Tests for Model_Coupon class
+ *
+ * @category Ristretto
+ * @package Orm
+ * @subpackage UnitTests
+ */
+
+/**
+ * Tests for Model_Coupon class.
+ *
+ * @category Ristretto
+ * @package Orm
+ * @subpackage UnitTests
+ */
+
+class ModelCouponTest extends Ristretto_Test_PHPUnit_DatabaseTestCase
+{
+    /**
+     * @return PHPUnit_Extensions_Database_DataSet_IDataSet
+     */
+    protected function getDataSet()
+    {
+        $dataSet = new PHPUnit_Extensions_Database_DataSet_YamlDataSet(
+            FIXTURES_PATH . '/sites/coupons.yaml'
+        );
+        $dataSet->addYamlFile(FIXTURES_PATH . '/sites/coupon_rules.yaml');
+        $dataSet->addYamlFile(FIXTURES_PATH . '/sites/coupon_ranges.yaml');
+
+        return $dataSet;
+    }
+
+    public function testAddsUsageFilterByDefaultWhenReturnsAllCoupons()
+    {
+        $unit = new Model_Coupon();
+
+        $coupons = $unit->findAll();
+
+        $this->assertInstanceOf('Ristretto_Collection', $coupons);
+        $this->assertEquals(7, $coupons->count());
+    }
+
+    public function testAllowsSaveOnlyOnMasterDbServer()
+    {
+        $this->setExpectedException(
+            'Ristretto_Exception',
+            'Db server is not master.'
+        );
+
+        Ristretto_Model::getDb()->setMaster(false);
+
+        $unit = new Model_Coupon(true);
+        $unit['website_id'] = 3;
+        $unit->save();
+    }
+
+    public function testReturnsAllCouponsInSlice()
+    {
+        $unit = new Model_Coupon();
+
+        $coupons = $unit->findAll();
+
+        $this->assertEquals(7, $coupons->count());
+
+        $couponSlice = $coupons->slice(2, 3);
+        $this->assertInstanceOf('Ristretto_Collection', $couponSlice);
+        $this->assertEquals(3, count($couponSlice));
+    }
+}
